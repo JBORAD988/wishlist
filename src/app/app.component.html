@@ -1,8 +1,68 @@
 <!DOCTYPE html>
-<div class="container">
-<!--  <div>-->
-<!--    {{ items[0].WishText }}-->
+<!--<div class="container">-->
+<!--  &lt;!&ndash;  <div>&ndash;&gt;-->
+<!--  &lt;!&ndash;    {{ items[0].WishText }}&ndash;&gt;-->
+<!--  &lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--  <div *ngIf="items.length ===0">-->
+<!--    <h1>There is no data out there</h1>-->
 <!--  </div>-->
 
-  <div *ngFor="let iit of items"> {{iit.WishText}} </div>
+
+<!--  <ul class="wish-list" *ngIf="items.length >0">-->
+<!--    <li *ngFor="let iit of items">-->
+<!--    <div class="form-check">-->
+<!--      <label class="form-check-label">-->
+<!--        <input class="checkbox" type="checkbox" >{{ iit.WishText }}>-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+
+
+
+<div class="container">
+
+<!--  <div *ngIf="items.length ===0; then Noitems else Showitems" >  </div>-->
+
+<!--    <ng-template #Noitems >-->
+<!--      <h1>There is no data out there</h1>-->
+<!--    </ng-template>-->
+
+<!--  <ng-template #Showitems>-->
+<!--    <ul class="wish-list" *ngIf="items.length >0">-->
+<!--      <li *ngFor="let iit of items">-->
+<!--        <div class="form-check">-->
+<!--          <label class="form-check-label">-->
+<!--            <input class="checkbox" type="checkbox" >{{ iit.WishText }}>-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </ng-template>-->
+
+
+
+
+
+
+  <div *ngIf="items.length ===0; else Showitems" >
+        <h1>There is no data out there</h1>
+  </div>
+
+  <ng-template #Showitems>
+    <ul class="wish-list" *ngIf="items.length >0">
+      <li *ngFor="let itm of items">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="checkbox" type="checkbox" [checked]="itm.isComplete">
+            {{ itm.WishText }}>
+          </label>
+        </div>
+      </li>
+    </ul>
+  </ng-template>
+
 </div>
