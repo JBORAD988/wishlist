@@ -28,7 +28,6 @@ export class AppComponent {
   // }
 
 
-  newWishText = '';
 
   listFilter: string = '0';
 
@@ -47,8 +46,5 @@ export class AppComponent {
     }
   }
 
-  addNewWish() {
-    this.items.push(new WishItem(this.newWishText));
-    this.newWishText = '';
-  }
+
 }
