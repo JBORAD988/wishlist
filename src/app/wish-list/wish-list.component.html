@@ -1,0 +1,34 @@
+<div *ngIf="wishis.length === 0; else Showitems">
+  <h5>There is no data out there</h5>
+</div>
+
+<ng-template #Showitems>
+  <ul class="wish-list" *ngIf="wishis.length > 0">
+    <li *ngFor="let itm of wishis; index as ii">
+      <div class="form-check">
+        <!--          <label class="form-check-label">-->
+        <!--            <input class="checkbox" type="checkbox" [checked]="itm.isComplete" [attr.data-index]="ii"-->
+        <!--            (click)="toggleItem()"
+               (click)="toggleItem($event) >-->
+        <!--            {{ itm.WishText }}>-->
+        <!--          </label>-->
+
+        <label class="form-check-label">
+          <input
+            class="checkbox"
+            type="checkbox"
+            [checked]="itm.isComplete"
+            [attr.data-index]="ii"
+            (click)="toggleItem(itm)"
+          />
+          {{ itm.WishText }}
+        </label>
+      </div>
+    </li>
+  </ul>
+</ng-template>
+
+<!--  <td  [colSpan]="true">-->
+
+<!--  </td>-->
+
