@@ -24,4 +24,25 @@ export class AppComponent {
   ];
   title = 'whishlist';
   protected readonly WishItem = WishItem;
+
+
+  // toggleItem(e:any){
+  //   console.log(e);
+  // }
+
+
+
+  toggleItem(items:WishItem){
+    items.isComplete = !items.isComplete;
+    console.log(items);
+  }
+  newWishText='';
+
+  addNewWish() {
+    this.items.push(new WishItem(this.newWishText));
+    this.newWishText='';
+  }
+
 }
+
+
