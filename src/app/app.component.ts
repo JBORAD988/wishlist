@@ -38,11 +38,33 @@ export class AppComponent {
   }
   newWishText='';
 
+  listFilter:string='0';
+
+  visibleItems:WishItem[]= this.items;
+
   addNewWish() {
     this.items.push(new WishItem(this.newWishText));
     this.newWishText='';
   }
+  filterChanged(value: any) {
+    if (value === '0') {
+      // Show all items
+      this.visibleItems = this.items;
+    } else if (value === '1') {
+      // Show only incomplete items
+      this.visibleItems = this.items.filter(item => !item.isComplete);
+    } else {
+      // Show only completed items
+      this.visibleItems = this.items.filter(item => item.isComplete);
+    }
+  }
 
-}
+
+
+  }
+
+
+
+
 
 
