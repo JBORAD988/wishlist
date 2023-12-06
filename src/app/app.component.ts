@@ -27,8 +27,9 @@ export class AppComponent {
 
 
   // filter:any = () =>{};
-  filter:any = () =>true;  // other ways to solve the not loading the list at starting
+  // filter:any = () =>true;  // other ways to solve the not loading the list at starting
 
+  filter:any;
 
 
   // get visibleItems(): WishItem[]{

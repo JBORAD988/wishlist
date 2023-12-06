@@ -14,24 +14,32 @@ const filters =[
   styleUrls: ['./wish-filter.component.css']
 })
 export class WishFilterComponent implements OnInit {
-
-  @Output() filter = new EventEmitter<any>();
+   @Input() filter:any
+  @Output() filterChange = new EventEmitter<any>();
 
   constructor() {
   }
 
   ngOnInit(): void {
     // this.ChangeFilter('0') this method is use to solve preload problem of list
-    this.filter.emit(filters[0]);
+    // this.filter.emit(filters[0]);
+    this.updateFilter('0');
+
 
   }
 
 
   listFilter: String = '0'
 
-  ChangeFilter(value: any) {
-    this.filter.emit(filters[value]);
+  // ChangeFilter(value: any) {
+  //   this.filter.emit(filters[value]);
+  // }
+
+  updateFilter(value: any) {
+    this.filter=filters[value];
+    this.filterChange.emit(this.filter);
   }
+
 
   //
   //   if (value === '0') {
