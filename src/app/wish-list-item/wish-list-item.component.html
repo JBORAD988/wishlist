@@ -1,0 +1,21 @@
+<li>
+  <div class="form-check">
+    <!--          <label class="form-check-label">-->
+    <!--            <input class="checkbox" type="checkbox" [checked]="itm.isComplete" [attr.data-index]="ii"-->
+    <!--            (click)="toggleItem()"
+           (click)="toggleItem($event) >-->
+    <!--            {{ itm.WishText }}>-->
+    <!--          </label>-->
+
+    <label class="form-check-label">
+      <input
+        class="checkbox"
+        type="checkbox"
+        [checked]="fullFilled"
+        [attr.data-index]="fullFilled"
+        (click)="toggleableFilled()"
+      />
+      {{ WishText }}
+    </label>
+  </div>
+</li>
