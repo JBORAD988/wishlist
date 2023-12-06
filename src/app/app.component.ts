@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WishItem } from 'src/shared/models/wishItem';
+import events from "../../src/shared/services/EventServices"
 
 @Component({
   selector: 'app-root',
@@ -23,41 +24,14 @@ export class AppComponent {
   title = 'whishlist';
   protected readonly WishItem = WishItem;
 
+  constructor() {
+    events.listen('removeWish',(wish)=>{
 
+      console.log(wish)
+    });
+  }
 
-
-  // filter:any = () =>{};
-  // filter:any = () =>true;  // other ways to solve the not loading the list at starting
 
   filter:any;
-
-
-  // get visibleItems(): WishItem[]{
-  //   return this.items.filter(this.filter)
-  // }
-
-  // toggleItem(e:any){
-  //   console.log(e);
-  // }
-
-
-
-  // listFilter: string = '0';
-  //
-  // get visibleItems(): WishItem[] {
-  //   let value = this.listFilter;
-  //
-  //   if (value === '0') {
-  //     // Show all items
-  //     return this.items;
-  //   } else if (value === '1') {
-  //     // Show only incomplete items
-  //     return this.items.filter((item) => !item.isComplete);
-  //   } else {
-  //     // Show only completed items
-  //     return this.items.filter((item) => item.isComplete);
-  //   }
-  // }
-
 
 }
