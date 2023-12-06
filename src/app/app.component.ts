@@ -31,9 +31,9 @@ export class AppComponent {
 
 
 
-  get visibleItems(): WishItem[]{
-    return this.items.filter(this.filter)
-  }
+  // get visibleItems(): WishItem[]{
+  //   return this.items.filter(this.filter)
+  // }
 
   // toggleItem(e:any){
   //   console.log(e);
